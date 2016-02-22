@@ -1,0 +1,9 @@
+.idea/
+node_modules/
+bin/
+public/
+views/
+models/demo
+models/employee
+models/job
+*.DS_Store

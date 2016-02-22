@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="http://maps.googleapis.com/maps/api/js"></script>
+    <script>
+        $( "#searchForm" ).submit(function( event ) {
+            var $form = $(this),
+                    term = $form.find("input[name='authorization']").val(),
+                    url = $form.attr("action");
+            var posting = $.post(url, {authorization: term});
+        });
+    </script>
+</head>
+<body>
+<form action="http://localhost:8500/admin/showusersonmap" id="searchForm" method="post">
+    <input type="text" name="authorization" placeholder="token">
+    <input type="submit" value="show">
+</form>
+<div id="googleMap" style="width:700px;height:600px;"></div>
+</body>
+</html> 

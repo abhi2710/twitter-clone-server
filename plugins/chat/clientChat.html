@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+
+<script src="https://cdn.socket.io/socket.io-1.0.6.js"></script>
+<script src="http://code.jquery.com/jquery-2.1.1.js"></script>
+<script>
+    $(document).ready(function() {
+        $("#send").click(function () {
+            var socket = io('localhost:8500');
+            socket.emit($("#text1").val());
+            socket.on('Hi back at you', function (data) {
+                alert("Hi back at you");
+            });
+            socket.on('Take it easy, pal', function (data) {
+                alert("Take it easy, pal");
+            });
+        });
+    });
+</script>
+
+<input type="button" value="start__connection" id="button1"><br>
+<br>
+<input type="text" placeholder="type your message" id="text1">
+<br>
+<input type="button" value="SEND MESSAGE" id="send">
+
+</body>
+</html>
